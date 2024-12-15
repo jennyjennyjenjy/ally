@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ally Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6A0DAD;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        header .login-button {
+            padding: 10px 20px;
+            border: 2px solid #6A0DAD;
+            color: #6A0DAD;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px);
+            background-color: #fff;
+        }
+
+        .login-container {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            margin: 0 0 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #6A0DAD;
+        }
+
+        .login-container .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .login-container .action-buttons a {
+            font-size: 12px;
+            text-decoration: none;
+            color: #6A0DAD;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #6A0DAD;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #590C9E;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ally</div>
+        <nav>
+            <a href="#">Checking & Savings</a>
+            <a href="#">Credit Cards</a>
+            <a href="#">Investing & Retirement</a>
+            <a href="#">Mortgage</a>
+            <a href="#">Auto</a>
+        </nav>
+        <a href="#" class="login-button">Log In</a>
+    </header>
+    <div class="content">
+        <div class="login-container">
+            <h2>Login</h2>
+            <form>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="save-username"> Save username
+                    </label>
+                </div>
+                <button type="submit">Log In</button>
+                <div class="action-buttons">
+                    <a href="#">Forgot username or password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
