@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             background-color: #f7f7f7;
+            overflow-x: hidden;
         }
 
         header {
@@ -96,68 +97,49 @@
             border-radius: 10px;
         }
 
-        .features {
-            display: flex;
-            justify-content: space-around;
-            padding: 50px 20px;
-            background-color: #f7f7f7;
-        }
-
-        .feature {
-            text-align: center;
-            max-width: 200px;
-        }
-
-        .feature img {
-            width: 50px;
-            margin-bottom: 10px;
-        }
-
-        .feature h3 {
-            font-size: 18px;
-            color: #4A154B;
-            margin: 10px 0;
-        }
-
-        .feature p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        /* Popup Styles */
         .login-popup {
             position: fixed;
             top: 0;
-            right: -400px;
+            right: -100%;
             width: 400px;
             height: 100%;
             background: white;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
             transition: right 0.3s ease;
+            padding: 20px;
+            z-index: 1000;
         }
 
         .login-popup.active {
             right: 0;
         }
 
+        .login-popup .close-btn {
+            font-size: 20px;
+            color: #6A0DAD;
+            cursor: pointer;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
         .login-popup h2 {
-            margin-top: 0;
+            font-size: 24px;
+            margin-bottom: 10px;
             color: #4A154B;
         }
 
         .login-popup label {
             display: block;
-            margin: 10px 0 5px;
             font-size: 14px;
-            color: #333;
+            margin-bottom: 5px;
+            color: #555;
         }
 
         .login-popup input {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 5px;
         }
 
@@ -168,19 +150,21 @@
             color: white;
             border: none;
             border-radius: 5px;
-            font-weight: bold;
+            font-size: 16px;
             cursor: pointer;
         }
 
-        .login-popup .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
+        .login-popup .additional-links {
+            margin-top: 20px;
+            font-size: 14px;
             color: #333;
+        }
+
+        .login-popup .additional-links a {
+            color: #6A0DAD;
+            text-decoration: none;
+            display: block;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -194,7 +178,7 @@
             <a href="#">Mortgage</a>
             <a href="#">Auto</a>
         </nav>
-        <a href="#" class="login-button" id="loginButton">Log In</a>
+        <div class="login-button" onclick="toggleLoginPopup()">Log In</div>
     </header>
 
     <div class="hero">
@@ -213,53 +197,28 @@
         </div>
     </div>
 
-    <div class="features">
-        <div class="feature">
-            <img src="ally1.png" alt="Icon 1">
-            <h3>Feature 1</h3>
-            <p>Quick access to your accounts</p>
-        </div>
-        <div class="feature">
-            <img src="ally1.png" alt="Icon 2">
-            <h3>Feature 2</h3>
-            <p>Secure and reliable services</p>
-        </div>
-        <div class="feature">
-            <img src="ally1.png" alt="Icon 3">
-            <h3>Feature 3</h3>
-            <p>24/7 Customer support</p>
-        </div>
-    </div>
-
-    <!-- Login Popup -->
     <div class="login-popup" id="loginPopup">
-        <button class="close-button" id="closeButton">&times;</button>
+        <div class="close-btn" onclick="toggleLoginPopup()">&times;</div>
         <h2>Login</h2>
         <label for="username">Username</label>
         <input type="text" id="username" placeholder="Enter your username">
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="Enter your password">
         <button>Log In</button>
+        <div class="additional-links">
+            <a href="#">Forgot username or password?</a>
+            <a href="#">Create a profile to manage your account online</a>
+            <h4>More to do</h4>
+            <a href="#">Finish a mortgage application</a>
+            <a href="#">Complete a saved auto refinance or lease buyout application</a>
+        </div>
     </div>
 
     <script>
-        const loginButton = document.getElementById('loginButton');
-        const loginPopup = document.getElementById('loginPopup');
-        const closeButton = document.getElementById('closeButton');
-
-        loginButton.addEventListener('click', () => {
-            loginPopup.classList.add('active');
-        });
-
-        closeButton.addEventListener('click', () => {
-            loginPopup.classList.remove('active');
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === loginPopup) {
-                loginPopup.classList.remove('active');
-            }
-        });
+        function toggleLoginPopup() {
+            const popup = document.getElementById('loginPopup');
+            popup.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
