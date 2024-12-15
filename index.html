@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ally Login</title>
+    <title>Ally Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,75 +42,85 @@
             font-weight: bold;
         }
 
-        .content {
+        .hero {
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: calc(100vh - 80px);
+            justify-content: space-between;
+            padding: 50px;
             background-color: #fff;
         }
 
-        .login-container {
-            width: 300px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        .hero-text {
+            max-width: 500px;
         }
 
-        .login-container h2 {
+        .hero-text h1 {
+            font-size: 32px;
+            color: #4A154B;
+            margin-bottom: 20px;
+        }
+
+        .hero-text ul {
+            list-style: none;
+            padding: 0;
             margin: 0 0 20px;
-            font-size: 18px;
-            color: #333;
         }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #6A0DAD;
-        }
-
-        .login-container .action-buttons {
+        .hero-text ul li {
+            font-size: 16px;
+            margin: 10px 0;
             display: flex;
-            justify-content: space-between;
             align-items: center;
         }
 
-        .login-container .action-buttons a {
-            font-size: 12px;
-            text-decoration: none;
-            color: #6A0DAD;
+        .hero-text ul li::before {
+            content: '\2713';
+            color: #00A000;
+            margin-right: 10px;
         }
 
-        .login-container button {
-            width: 100%;
-            padding: 10px;
+        .hero-text .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
             background-color: #6A0DAD;
             color: white;
-            border: none;
+            text-decoration: none;
             border-radius: 5px;
-            cursor: pointer;
+            font-weight: bold;
         }
 
-        .login-container button:hover {
-            background-color: #590C9E;
+        .hero-image img {
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 20px;
+            background-color: #f7f7f7;
+        }
+
+        .feature {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .feature img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            font-size: 18px;
+            color: #4A154B;
+            margin: 10px 0;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: #555;
         }
     </style>
 </head>
@@ -126,28 +136,38 @@
         </nav>
         <a href="#" class="login-button">Log In</a>
     </header>
-    <div class="content">
-        <div class="login-container">
-            <h2>Login</h2>
-            <form>
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Enter your username">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password">
-                </div>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" name="save-username"> Save username
-                    </label>
-                </div>
-                <button type="submit">Log In</button>
-                <div class="action-buttons">
-                    <a href="#">Forgot username or password?</a>
-                </div>
-            </form>
+
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Simple and fast, all under one roof.</h1>
+            <p>Unlock benefits with Ally Home:</p>
+            <ul>
+                <li>Apply in as little as 15 minutes</li>
+                <li>Get pre-approved fast</li>
+                <li>Pay no lender fees</li>
+            </ul>
+            <a href="#" class="cta-button">Get Pre-approved</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/500" alt="Couple embracing">
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <img src="https://via.placeholder.com/50" alt="Icon 1">
+            <h3>Feature 1</h3>
+            <p>Quick access to your accounts</p>
+        </div>
+        <div class="feature">
+            <img src="https://via.placeholder.com/50" alt="Icon 2">
+            <h3>Feature 2</h3>
+            <p>Secure and reliable services</p>
+        </div>
+        <div class="feature">
+            <img src="https://via.placeholder.com/50" alt="Icon 3">
+            <h3>Feature 3</h3>
+            <p>24/7 Customer support</p>
         </div>
     </div>
 </body>
