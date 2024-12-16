@@ -23,15 +23,21 @@
         }
 
         header .logo {
-            font-size: 34px;
+            font-size: 24px;
             font-weight: bold;
             color: #6A0DAD;
+        }
+
+        header nav {
+            display: flex;
+            flex-wrap: wrap;
         }
 
         header nav a {
             margin: 0 15px;
             text-decoration: none;
             color: #333;
+            font-size: 14px;
         }
 
         header .login-button {
@@ -44,12 +50,14 @@
             cursor: pointer;
         }
 
+        /* Hero Section */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 50px;
             background-color: #fff;
+            flex-wrap: wrap;
         }
 
         .hero-text {
@@ -57,7 +65,7 @@
         }
 
         .hero-text h1 {
-            font-size: 32px;
+            font-size: 28px;
             color: #4A154B;
             margin-bottom: 20px;
         }
@@ -93,15 +101,17 @@
         }
 
         .hero-image img {
-            max-width: 800px;
+            max-width: 100%;
             border-radius: 10px;
         }
 
+        /* Login Popup */
         .login-popup {
             position: fixed;
             top: 0;
             right: -100%;
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             height: 100%;
             background: white;
             box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
@@ -154,29 +164,6 @@
             cursor: pointer;
         }
 
-        .login-popup .spinner {
-            display: none;
-            margin: 10px auto;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #6A0DAD;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .login-popup .error {
-            display: none;
-            color: red;
-            text-align: center;
-            margin-top: 10px;
-        }
-
         .login-popup .additional-links {
             margin-top: 20px;
             font-size: 14px;
@@ -188,6 +175,69 @@
             text-decoration: none;
             display: block;
             margin-top: 5px;
+        }
+
+        /* Spinner */
+        .spinner {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #6A0DAD;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .hero-image img {
+                margin-top: 20px;
+            }
+
+            .login-popup {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header .logo {
+                font-size: 20px;
+            }
+
+            header nav a {
+                font-size: 12px;
+                margin: 5px;
+            }
+
+            .hero-text h1 {
+                font-size: 24px;
+            }
+
+            .hero-text ul li {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -227,9 +277,8 @@
         <input type="text" id="username" placeholder="Enter your username">
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="Enter your password">
-        <button onclick="handleLogin()">Log In</button>
+        <button onclick="showSpinner()">Log In</button>
         <div class="spinner" id="spinner"></div>
-        <div class="error" id="error">Error: Error code: 0X0047800 <br> Your account has been blocked due to some suspicious login attempts. <br>Contact Support : <a href="tel:18335317046">+1-833-531-7046</a></div>
         <div class="additional-links">
             <a href="#">Forgot username or password?</a>
             <a href="#">Create a profile to manage your account online</a>
@@ -245,19 +294,13 @@
             popup.classList.toggle('active');
         }
 
-        function handleLogin() {
+        function showSpinner() {
             const spinner = document.getElementById('spinner');
-            const error = document.getElementById('error');
-
-            // Show spinner
             spinner.style.display = 'block';
-            error.style.display = 'none';
-
-            // Simulate login delay
             setTimeout(() => {
                 spinner.style.display = 'none';
-                error.style.display = 'block';
-            }, 2000);
+                alert('Error: Invalid credentials');
+            }, 2000); // Simulate an API delay
         }
     </script>
 </body>
